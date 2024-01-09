@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Azure.Messaging.ServiceBus;
-using Newtonsoft.Json;
 
 string? connectionString = Environment.GetEnvironmentVariable("SERVICE_BUS_CONNECTION_STR");
 string? queueName = Environment.GetEnvironmentVariable("SERVICE_BUS_QUEUE_NAME");

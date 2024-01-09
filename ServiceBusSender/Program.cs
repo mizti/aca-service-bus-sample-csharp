@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Azure.Messaging.ServiceBus;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 string? connectionString = Environment.GetEnvironmentVariable("SERVICE_BUS_CONNECTION_STR");
 string? queueName = Environment.GetEnvironmentVariable("SERVICE_BUS_QUEUE_NAME");
@@ -17,7 +17,7 @@ var data = new
     arrayKey = new[] { "arrayValue1", "arrayValue2" }
 };
 
-string jsonString = JsonConvert.SerializeObject(data, Formatting.Indented);
+string jsonString = JsonSerializer.Serialize(data);
 
 // since ServiceBusClient implements IAsyncDisposable we create it with "await using"
 await using var client = new ServiceBusClient(connectionString);
